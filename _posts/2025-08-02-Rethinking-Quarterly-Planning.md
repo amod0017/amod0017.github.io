@@ -6,7 +6,7 @@ categories: [ tech ]
 tags: [ blogging, piplanning, setup ]
 comments: true
 ---
-Quarterly planning often feels heavier than it needs to be. Long meetings, OKRs that nobody remembers by mid‑quarter, and plans that go stale as soon as priorities shift — I’ve seen it all.
+Quarterly planning often feels heavier than it needs to be. Long meetings, OKRs that nobody remembers by mid‑quarter, and plans that go stale as soon as priorities shift I’ve seen it all.
 
 PostHog’s approach to planning is refreshingly simple and still manages to keep everyone aligned. Here’s what stood out to me:
 
@@ -29,3 +29,5 @@ Instead of filing plans away, they review them every sprint using a simple traff
 Leadership shares the big picture; teams own their piece of the plan. That trust leads to more realistic goals and higher motivation.
 
 This approach feels lighter and more practical than the typical quarterly planning marathons. If your team is burned out on OKRs and endless alignment meetings, try borrowing some of these ideas — keep the context clear, let teams lead on execution, and focus on what you’ll actually ship.
+
+### Referenced PostHog Blog: https://newsletter.posthog.com/p/youre-doing-quarterly-planning-wrong
