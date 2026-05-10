@@ -1,0 +1,65 @@
+---
+layout: default
+---
+
+<div class="page">
+
+  <header class="site-header">
+    <div class="site-label">{{ site.name }}</div>
+    <p>{{ site.description }}</p>
+  </header>
+
+  {% assign posts = paginator.posts | default: site.posts %}
+  {% assign first_post = posts | first %}
+  {% assign other_posts = posts | slice: 1, 100 %}
+
+  {% if first_post %}
+  <a class="hero-post" href="{{ site.baseurl }}{{ first_post.url }}">
+    <div class="hero-image">
+      {% if first_post.image %}
+        <img src="{{ site.baseurl }}/{{ first_post.image }}" alt="{{ first_post.title }}">
+      {% endif %}
+      <div class="hero-image-text">
+        {% if first_post.category %}<div class="hero-cat">{{ first_post.category }}</div>{% endif %}
+        <div class="hero-title">{{ first_post.title }}</div>
+        <div class="hero-meta">{{ first_post.date | date: "%b %-d, %Y" }}</div>
+      </div>
+    </div>
+  </a>
+  {% endif %}
+
+  {% if other_posts.size > 0 %}
+  <div class="section-label">More posts</div>
+  <ul class="post-list">
+    {% for post in other_posts %}
+    <li>
+      <a class="post-row" href="{{ site.baseurl }}{{ post.url }}">
+        {% if post.image %}
+        <div class="post-thumb">
+          <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}">
+        </div>
+        {% endif %}
+        <div class="post-info">
+          {% if post.category %}<div class="post-row-cat">{{ post.category }}</div>{% endif %}
+          <div class="post-row-title">{{ post.title }}</div>
+        </div>
+        <span class="post-row-date">{{ post.date | date: "%b %Y" }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">&larr; Newer</a>
+    {% endif %}
+    <span class="current">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a href="{{ site.baseurl }}{{ paginator.next_page_path }}">Older &rarr;</a>
+    {% endif %}
+  </div>
+  {% endif %}
+
+</div>
