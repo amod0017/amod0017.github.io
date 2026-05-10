@@ -22,6 +22,7 @@ layout: default
       <div class="hero-image-text">
         {% if first_post.category %}<div class="hero-cat">{{ first_post.category }}</div>{% endif %}
         <div class="hero-title">{{ first_post.title }}</div>
+        <div class="hero-excerpt">{{ first_post.content | strip_html | strip | truncatewords: 25 }}</div>
         <div class="hero-meta">{{ first_post.date | date: "%b %-d, %Y" }}</div>
       </div>
     </div>
@@ -42,6 +43,7 @@ layout: default
         <div class="post-info">
           {% if post.category %}<div class="post-row-cat">{{ post.category }}</div>{% endif %}
           <div class="post-row-title">{{ post.title }}</div>
+          <div class="post-row-excerpt">{{ post.content | strip_html | strip | truncatewords: 20 }}</div>
         </div>
         <span class="post-row-date">{{ post.date | date: "%b %Y" }}</span>
       </a>

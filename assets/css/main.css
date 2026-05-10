@@ -233,6 +233,17 @@ a { color: inherit; }
   color: #fff;
 }
 
+.hero-excerpt {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  margin-top: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .hero-meta {
   font-size: 11px;
   color: rgba(255,255,255,0.6);
@@ -305,6 +316,17 @@ a { color: inherit; }
   letter-spacing: -0.4px;
   line-height: 1.25;
   color: var(--text-primary);
+}
+
+.post-row-excerpt {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .post-row-date {
