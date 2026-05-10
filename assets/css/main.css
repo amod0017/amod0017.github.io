@@ -798,6 +798,114 @@ a { color: inherit; }
 }
 
 /* ═══════════════════════════════════════
+   Nav dropdown
+═══════════════════════════════════════ */
+
+.has-dropdown { position: relative; }
+
+.dropdown-toggle::after {
+  content: ' ▾';
+  font-size: 7px;
+  vertical-align: middle;
+}
+
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: -16px;
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-top: 2px solid var(--border-strong);
+  min-width: 160px;
+  z-index: 200;
+  list-style: none;
+  padding: 6px 0;
+}
+
+.has-dropdown:hover .nav-dropdown { display: block; }
+
+.nav-dropdown li a {
+  display: block;
+  padding: 8px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.nav-dropdown li a:hover {
+  color: var(--text-primary);
+  background: var(--surface);
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 6px 0;
+}
+
+/* ═══════════════════════════════════════
+   Archive / Blog pages
+═══════════════════════════════════════ */
+
+.archive-header {
+  padding: 48px 0 32px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+}
+
+.archive-header h1 {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.archive-count {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.archive-post-list {
+  list-style: none;
+  padding-bottom: 48px;
+}
+
+.archive-post-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: inherit;
+  gap: 16px;
+}
+
+.archive-post-row:hover .archive-post-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.archive-post-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--text-primary);
+}
+
+.archive-post-date {
+  font-size: 11px;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════
    Footer
 ═══════════════════════════════════════ */
 
@@ -865,6 +973,19 @@ a { color: inherit; }
   .nav-toggle { display: block; }
 
   .post-grid { grid-template-columns: 1fr; }
+
+  .nav-dropdown {
+    position: static;
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    border-left: 2px solid var(--border-strong);
+    margin: 8px 0 0 8px;
+    padding: 4px 0;
+    display: none;
+  }
+  .nav-dropdown.open { display: block; }
+  .has-dropdown:hover .nav-dropdown { display: none; }
+  .has-dropdown:hover .nav-dropdown.open { display: block; }
 
   .page { padding: 0 16px; }
 

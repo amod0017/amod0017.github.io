@@ -27,7 +27,17 @@
   <a class="logo" href="{{ site.baseurl }}/">{{ site.author.name }}</a>
   <div class="nav-right">
     <ul class="nav-links" id="nav-links">
-      <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
+      <li class="has-dropdown">
+        <a href="{{ site.baseurl }}/blog" class="dropdown-toggle" id="blog-toggle">Blog</a>
+        <ul class="nav-dropdown" id="blog-dropdown">
+          {% assign sorted_cats = site.categories | sort %}
+          {% for cat in sorted_cats %}
+          <li><a href="{{ '/category/' | append: cat[0] | downcase | replace: ' ', '-' | append: '/' | relative_url }}">{{ cat[0] }}</a></li>
+          {% endfor %}
+          <li class="nav-dropdown-divider"></li>
+          <li><a href="{{ site.baseurl }}/blog">All Posts</a></li>
+        </ul>
+      </li>
       <li><a href="{{ site.baseurl }}/projects">Projects</a></li>
       <li><a href="{{ site.baseurl }}/about">About</a></li>
     </ul>
@@ -56,6 +66,18 @@
   });
   document.getElementById('nav-toggle').addEventListener('click', function() {
     document.getElementById('nav-links').classList.toggle('open');
+  });
+  document.getElementById('blog-toggle').addEventListener('click', function(e) {
+    var isMobile = window.innerWidth <= 640;
+    if (isMobile) {
+      e.preventDefault();
+      document.getElementById('blog-dropdown').classList.toggle('open');
+    }
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.has-dropdown')) {
+      document.getElementById('blog-dropdown').classList.remove('open');
+    }
   });
 </script>
 
