@@ -21,7 +21,8 @@ layout: default
     </div>
   </div>
 
-  {% if content != "" %}
+  {% assign body = content | strip %}
+  {% if body != "" %}
   <div class="page-body">
     {{ content }}
   </div>
