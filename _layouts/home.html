@@ -11,7 +11,7 @@ layout: default
 
   {% assign posts = paginator.posts | default: site.posts %}
   {% assign first_post = posts | first %}
-  {% assign other_posts = posts | slice: 1, 100 %}
+  {% assign other_posts = posts | slice: 1, 3 %}
 
   {% if first_post %}
   <a class="hero-post" href="{{ site.baseurl }}{{ first_post.url }}">
