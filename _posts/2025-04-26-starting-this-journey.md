@@ -3,7 +3,7 @@ layout: post
 title: "Starting This Journey"
 image: assets/images/post-journey.jpg
 author: "Amod"
-categories: [ tech, growth, travel, food ]
+categories: [ tech ]
 tags: [ beginnings, learning, exploration ]
 comments: true
 ---

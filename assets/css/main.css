@@ -812,7 +812,7 @@ a { color: inherit; }
 .nav-dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 12px);
+  top: 100%;
   left: -16px;
   background: var(--bg);
   border: 1px solid var(--border-subtle);
