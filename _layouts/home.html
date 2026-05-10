@@ -17,7 +17,7 @@ layout: default
   <a class="hero-post" href="{{ site.baseurl }}{{ first_post.url }}">
     <div class="hero-image">
       {% if first_post.image %}
-        <img src="{{ site.baseurl }}/{{ first_post.image }}" alt="{{ first_post.title }}">
+        <img src="{{ first_post.image | relative_url }}" alt="{{ first_post.title }}">
       {% endif %}
       <div class="hero-image-text">
         {% if first_post.category %}<div class="hero-cat">{{ first_post.category }}</div>{% endif %}
@@ -36,7 +36,7 @@ layout: default
       <a class="post-row" href="{{ site.baseurl }}{{ post.url }}">
         {% if post.image %}
         <div class="post-thumb">
-          <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
         </div>
         {% endif %}
         <div class="post-info">
