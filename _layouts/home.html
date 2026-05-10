@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="page">
+<div class="page page--wide">
 
   <header class="site-header">
     <div class="site-label">{{ site.name }}</div>
@@ -31,25 +31,23 @@ layout: default
 
   {% if other_posts.size > 0 %}
   <div class="section-label">More posts</div>
-  <ul class="post-list">
+  <div class="post-grid">
     {% for post in other_posts %}
-    <li>
-      <a class="post-row" href="{{ site.baseurl }}{{ post.url }}">
+    <a class="post-card" href="{{ site.baseurl }}{{ post.url }}">
+      <div class="post-card-thumb">
         {% if post.image %}
-        <div class="post-thumb">
           <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
-        </div>
         {% endif %}
-        <div class="post-info">
-          {% if post.category %}<div class="post-row-cat">{{ post.category }}</div>{% endif %}
-          <div class="post-row-title">{{ post.title }}</div>
-          <div class="post-row-excerpt">{{ post.content | strip_html | strip | truncatewords: 20 }}</div>
-        </div>
-        <span class="post-row-date">{{ post.date | date: "%b %Y" }}</span>
-      </a>
-    </li>
+      </div>
+      <div class="post-card-body">
+        {% if post.category %}<div class="post-card-cat">{{ post.category }}</div>{% endif %}
+        <div class="post-card-title">{{ post.title }}</div>
+        <div class="post-card-excerpt">{{ post.content | strip_html | strip | truncatewords: 20 }}</div>
+        <div class="post-card-date">{{ post.date | date: "%b %-d, %Y" }}</div>
+      </div>
+    </a>
     {% endfor %}
-  </ul>
+  </div>
   {% endif %}
 
   {% if paginator.total_pages > 1 %}

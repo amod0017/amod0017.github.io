@@ -150,6 +150,10 @@ a { color: inherit; }
   padding: 0 24px;
 }
 
+.page--wide {
+  max-width: 1100px;
+}
+
 /* ═══════════════════════════════════════
    Site header (homepage tagline)
 ═══════════════════════════════════════ */
@@ -266,6 +270,91 @@ a { color: inherit; }
   letter-spacing: 2px;
   color: var(--text-faint);
   padding: 28px 0 0;
+}
+
+/* ═══════════════════════════════════════
+   Post grid (homepage 2-column)
+═══════════════════════════════════════ */
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 24px 0 48px;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.15s;
+}
+
+.post-card:hover {
+  border-color: var(--border-strong);
+}
+
+.post-card:hover .post-card-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-card-thumb {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.post-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.post-card-cat {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.post-card-title {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.post-card-excerpt {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-card-date {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 14px;
 }
 
 .post-list { list-style: none; }
@@ -774,6 +863,8 @@ a { color: inherit; }
   }
 
   .nav-toggle { display: block; }
+
+  .post-grid { grid-template-columns: 1fr; }
 
   .page { padding: 0 16px; }
 
