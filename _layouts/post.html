@@ -36,10 +36,10 @@ layout: default
     {% if page.tags != empty or page.categories != empty %}
     <div class="post-tags">
       {% for tag in page.tags %}
-        <a class="post-tag" href="{{ site.baseurl }}/tags#{{ tag | replace: ' ', '-' }}">#{{ tag }}</a>
+        <a class="post-tag" href="{{ '/tags' | relative_url }}#{{ tag | replace: ' ', '-' }}">#{{ tag }}</a>
       {% endfor %}
       {% for cat in page.categories %}
-        <a class="post-tag" href="{{ site.baseurl }}/categories#{{ cat | replace: ' ', '-' }}">{{ cat }}</a>
+        <a class="post-tag" href="{{ '/categories' | relative_url }}#{{ cat | replace: ' ', '-' }}">{{ cat }}</a>
       {% endfor %}
     </div>
     {% endif %}
