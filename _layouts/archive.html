@@ -1,21 +1,48 @@
 ---
 layout: default
-title: Archive
 ---
 
-<!-- Begin List Posts
-================================================== -->
-<section class="recent-posts">
-<div class="section-title">
-    <h2>Archive of posts with <span>{{ page.type }} '{{ page.title }}'</span></h2>
+{% assign recent_posts = page.posts | slice: 0, 3 %}
+{% assign older_posts = page.posts | slice: 3, 100 %}
+
+<div class="page page--wide">
+
+  <div class="archive-header">
+    <div class="post-cat">{{ page.title }}</div>
+    <h1>{{ page.title }}</h1>
+    <p class="archive-count">{{ page.posts.size }} post{% if page.posts.size != 1 %}s{% endif %}</p>
+  </div>
+
+  {% if recent_posts.size > 0 %}
+  <div class="post-grid">
+    {% for post in recent_posts %}
+    <a class="post-card" href="{{ site.baseurl }}{{ post.url }}">
+      <div class="post-card-thumb">
+        {% if post.image %}<img src="{{ post.image | relative_url }}" alt="{{ post.title }}">{% endif %}
+      </div>
+      <div class="post-card-body">
+        {% if post.category %}<div class="post-card-cat">{{ post.category }}</div>{% endif %}
+        <div class="post-card-title">{{ post.title }}</div>
+        <div class="post-card-excerpt">{{ post.content | strip_html | strip | truncatewords: 20 }}</div>
+        <div class="post-card-date">{{ post.date | date: "%b %-d, %Y" }}</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if older_posts.size > 0 %}
+  <div class="section-label">Older posts</div>
+  <ul class="archive-post-list">
+    {% for post in older_posts %}
+    <li>
+      <a class="archive-post-row" href="{{ site.baseurl }}{{ post.url }}">
+        <span class="archive-post-title">{{ post.title }}</span>
+        <span class="archive-post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
 </div>
-<div class="row listrecent">
-
-{% for post in page.posts %}
-
-    {% include postbox.html %}
-
-{% endfor %}
-
-</div>
-</section>

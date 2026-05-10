@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Creating Your Blog with a Jekyll Theme"
+image: assets/images/post-blog.jpg
 author: "Amod"
 categories: [ tech ]
 tags: [ blogging, jekyll, setup ]

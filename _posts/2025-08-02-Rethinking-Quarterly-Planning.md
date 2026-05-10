@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Rethinking Quarterly Planning: What I Learned from PostHog Blog and Personal Experience"
+image: assets/images/post-planning.jpg
 author: "Amod"
 categories: [ tech ]
 tags: [ blogging, piplanning, setup ]
