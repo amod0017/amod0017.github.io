@@ -740,8 +740,8 @@ a { color: inherit; }
   .nav-right .nav-links.open {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    top: 61px;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--bg);
