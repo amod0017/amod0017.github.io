@@ -11,11 +11,12 @@ google_analytics: 'UA-46278016-1'
 # Author — edit this to update your profile everywhere
 author:
   name: Amod
-  bio: Software engineer. I write about building things and sharing what I learn.
+  bio: Technology enthusiast and software developer passionate about creating impactful solutions.
   avatar: assets/images/author.png
   twitter: https://twitter.com/amod0017
   github: https://github.com/amod0017
   email: amod0017@gmail.com
+  aboutme: https://about.me/amod.g
 
 # Plugins
 plugins:
