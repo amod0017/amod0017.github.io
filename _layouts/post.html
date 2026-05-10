@@ -33,7 +33,7 @@ layout: default
 
   <div class="post-footer">
 
-    {% if page.tags.size > 0 or page.categories.size > 0 %}
+    {% if page.tags != empty or page.categories != empty %}
     <div class="post-tags">
       {% for tag in page.tags %}
         <a class="post-tag" href="{{ site.baseurl }}/tags#{{ tag | replace: ' ', '-' }}">#{{ tag }}</a>
@@ -56,17 +56,17 @@ layout: default
 
     <div class="post-nav">
       {% if page.previous %}
-      <a href="{{ site.baseurl }}{{ page.previous.url }}" class="prev">
+      <a href="{{ page.previous.url | relative_url }}" class="prev">
         <div class="nav-label">&larr; Previous</div>
         <div class="nav-title">{{ page.previous.title }}</div>
       </a>
       {% else %}<div></div>{% endif %}
       {% if page.next %}
-      <a href="{{ site.baseurl }}{{ page.next.url }}" class="next">
+      <a href="{{ page.next.url | relative_url }}" class="next">
         <div class="nav-label">Next &rarr;</div>
         <div class="nav-title">{{ page.next.title }}</div>
       </a>
-      {% endif %}
+      {% else %}<div></div>{% endif %}
     </div>
 
   </div>
