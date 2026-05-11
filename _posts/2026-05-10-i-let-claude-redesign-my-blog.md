@@ -37,17 +37,18 @@ For someone like me with opinions but no design vocabulary, this was genuinely u
 
 What made it click, though, was the visual companion. The brainstorming skill offered to open a local URL in the browser and show me actual mockups as we went. So instead of describing "I want a hero image with text overlay," I could look at two rendered layouts side by side and just pick. Here's a real moment from the session, deciding between light and dark mode:
 
-![Visual companion showing light and dark mode side by side]({{ site.baseurl }}/assets/images/post-superpowers-darkmode.png)
+![The visual companion previewing the theme toggle feature — showing how the blog looks in both light and dark mode as a user would experience it.]({{ site.baseurl }}/assets/images/post-superpowers-darkmode.png)
+*The visual companion previewing the theme toggle — light and dark side by side, exactly as a user would see it.*
 
 It felt like having a UX designer on the other end, except one who could spin up a mockup in seconds and immediately iterate on whatever I didn't like. For someone who thinks visually but can't design, that was the part that made it feel real.
 
-After several exchanges it produced a [written design spec](https://github.com/amod0017/amod0017.github.io/blob/master/docs/superpowers/specs/2026-05-10-frontend-redesign-design.md): hero post, two-column grid, category-based nav dropdown, dark mode toggle, updated About page. Saved to a file, committed to git.
+After several exchanges it produced a written design spec: hero post, two-column grid, category-based nav dropdown, dark mode toggle, updated About page. Saved to a file, committed to git. You can read it here if you're curious: [frontend-redesign-design.md](https://github.com/amod0017/amod0017.github.io/blob/master/docs/superpowers/specs/2026-05-10-frontend-redesign-design.md).
 
-That spec became the contract for everything that followed.
+From that point everything was measured against it.
 
 ### Actually Building It
 
-The writing-plans skill turned the spec into a [numbered task list](https://github.com/amod0017/amod0017.github.io/blob/master/docs/superpowers/plans/2026-05-10-frontend-redesign.md), each task with specific files to touch, exact steps, and commit instructions. Not "add a grid layout" but "modify `_layouts/home.html`, add `.post-grid` and `.post-card` to `assets/css/main.css`, commit."
+The writing-plans skill turned the spec into a numbered task list, each task with specific files to touch, exact steps, and commit instructions. [Here's the actual plan it generated.](https://github.com/amod0017/amod0017.github.io/blob/master/docs/superpowers/plans/2026-05-10-frontend-redesign.md) Not "add a grid layout" but "modify `_layouts/home.html`, add `.post-grid` and `.post-card` to `assets/css/main.css`, commit."
 
 Then subagent-driven development took over: it dispatched a fresh Claude instance per task, ran a spec compliance review ("did the code match what the spec said?"), then a code quality review. Only after both passed did it move to the next task.
 
@@ -87,7 +88,9 @@ The whole thing took a few hours. The blog now has a hero post, two-column card 
 
 I haven't used Superpowers on a large project yet, so I can't speak to that. But honestly, looking at the workflow, if you're already using Claude Code for something substantial, I'd strongly recommend trying it. The structure it imposes scales in a way that ad-hoc prompting just doesn't.
 
-If you've used Superpowers or something similar on a bigger codebase, I'd love to hear how it went. [Message me on LinkedIn](https://www.linkedin.com/in/amod0017/).
+If you've used Superpowers or something similar on a bigger codebase, I'd love to hear how it went.
+
+[Message me on LinkedIn](https://www.linkedin.com/in/amod0017/)
 
 ---
 
