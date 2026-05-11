@@ -37,8 +37,8 @@ For someone like me with opinions but no design vocabulary, this was genuinely u
 
 What made it click, though, was the visual companion. The brainstorming skill offered to open a local URL in the browser and show me actual mockups as we went. So instead of describing "I want a hero image with text overlay," I could look at two rendered layouts side by side and just pick. Here's a real moment from the session, deciding between light and dark mode:
 
-![The visual companion showing light vs dark mode side by side during brainstorming. I picked dark in about ten seconds.]({{ site.baseurl }}/assets/images/post-superpowers-darkmode.png)
-*The visual companion rendering both modes live so I could just pick one.*
+![The visual companion previewing the theme toggle feature — showing how the blog looks in both light and dark mode as a user would experience it.]({{ site.baseurl }}/assets/images/post-superpowers-darkmode.png)
+*The visual companion previewing the theme toggle — light and dark side by side, exactly as a user would see it.*
 
 It felt like having a UX designer on the other end, except one who could spin up a mockup in seconds and immediately iterate on whatever I didn't like. For someone who thinks visually but can't design, that was the part that made it feel real.
 
