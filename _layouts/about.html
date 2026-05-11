@@ -14,8 +14,10 @@ layout: default
       <div class="about-name">{{ author.name }}</div>
       <p class="about-bio">{{ author.bio }}</p>
       <ul class="about-links">
-        {% if author.twitter %}<li><a href="{{ author.twitter }}">Twitter</a></li>{% endif %}
+        {% if author.twitter %}<li><a href="{{ author.twitter }}">X (Twitter)</a></li>{% endif %}
         {% if author.github %}<li><a href="{{ author.github }}">GitHub</a></li>{% endif %}
+        {% if author.linkedin %}<li><a href="{{ author.linkedin }}">LinkedIn</a></li>{% endif %}
+        {% if author.stackoverflow %}<li><a href="{{ author.stackoverflow }}">Stack Overflow</a></li>{% endif %}
         {% if author.email %}<li><a href="mailto:{{ author.email }}">Email</a></li>{% endif %}
         {% if author.aboutme %}<li><a href="{{ author.aboutme }}">About.me</a></li>{% endif %}
       </ul>
