@@ -18,7 +18,7 @@ So I tried something different.
 
 I'd been using [Claude Code](https://claude.ai/code), Anthropic's CLI that lets you work with Claude directly in your terminal. I came across the **Superpowers plugin**, a set of workflow skills built on top of it.
 
-One thing worth knowing upfront: Superpowers installs via Claude Code's plugin system, but the skills themselves run across multiple agents including Copilot CLI, Gemini, Cursor, and Codex. It's not just a skill loader. It's a structured workflow system that covers the entire development process:
+One thing worth knowing upfront: Superpowers has separate installations for each agent — Claude Code, GitHub Copilot CLI, Gemini CLI, Cursor, and Codex each have their own install path. It's not just a skill loader. It's a structured workflow system that covers the entire development process:
 
 - **Brainstorming:** asks clarifying questions one at a time, produces a written design spec
 - **Writing plans:** turns the spec into a numbered task list with exact files, steps, and commit instructions
@@ -56,13 +56,13 @@ Then subagent-driven development took over: it dispatched a fresh Claude instanc
 
 **1. Docker crashed immediately.**
 
-My local Ruby environment was too old for the required gems. I switched to Docker, the official `jekyll/jekyll` image. On my Apple Silicon Mac, that image has no ARM64 variant, so it runs under Rosetta via `--platform linux/amd64`. That worked fine until the site tried to compile `main.scss`. The `sass-embedded` gem ships platform-specific Dart VM binaries. Under Rosetta emulation it picks the wrong platform binary at install time and dies when it tries to run it:
+My local Ruby environment was too old for the required gems. I switched to Docker, the official `jekyll/jekyll` image. On my Apple Silicon Mac, that image has no ARM64 variant, so it runs under Rosetta via `--platform linux/amd64`. That worked fine until the site tried to compile `main.scss`. The `sass-embedded` gem ships platform-specific native binaries. The `jekyll/jekyll` image runs Alpine Linux, which uses musl libc, and the musl variant of the sass-embedded binary is broken in that environment — a documented incompatibility, not a Rosetta issue:
 
 ```
 Error: EOFError: end of file reached
 ```
 
-The fix was unglamorous: rename `main.scss` to `main.css`. No SCSS features were being used anyway. Done.
+The canonical fix is pinning `jekyll-sass-converter` to `2.2.0` in your Gemfile, which avoids sass-embedded entirely. I took a blunter shortcut: rename `main.scss` to `main.css`. Since no SCSS features were actually in use, this sidesteps Sass compilation completely. It only works if you're not using SCSS syntax.
 
 **2. Post excerpts were empty on the home page.**
 
