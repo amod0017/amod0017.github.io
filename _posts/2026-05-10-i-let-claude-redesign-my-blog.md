@@ -18,7 +18,7 @@ So I tried something different.
 
 I'd been using [Claude Code](https://claude.ai/code), Anthropic's CLI that lets you work with Claude directly in your terminal. I came across the **Superpowers plugin**, a set of workflow skills built on top of it.
 
-One thing worth knowing upfront: **Superpowers is exclusive to Claude Code.** If you use GitHub Copilot or another AI coding tool, there's nothing quite like this available yet. It's not just a skill loader. It's a structured workflow system that covers the entire development process:
+One thing worth knowing upfront: Superpowers has separate installations for each agent — Claude Code, GitHub Copilot CLI, Gemini CLI, Cursor, and Codex each have their own install path. It's not just a skill loader. It's a structured workflow system that covers the entire development process:
 
 - **Brainstorming:** asks clarifying questions one at a time, produces a written design spec
 - **Writing plans:** turns the spec into a numbered task list with exact files, steps, and commit instructions
@@ -35,16 +35,16 @@ The brainstorming skill starts by asking questions one at a time before touching
 
 For someone like me with opinions but no design vocabulary, this was genuinely useful. It gave me a way to express preferences without having to know the right CSS terms for them.
 
-What made it click, though, was the visual companion. The brainstorming skill offered to open a local URL in the browser and show me actual mockups as we went. So instead of describing "I want a hero image with text overlay," I could look at two rendered layouts side by side and just pick. Here's a real moment from the session, deciding between light and dark mode:
+The visual companion is what actually changed how useful it was. The brainstorming skill offered to open a local URL in the browser and show me actual mockups as we went. So instead of describing "I want a hero image with text overlay," I could look at two rendered layouts side by side and just pick. Here's a screenshot from the session showing the theme toggle preview rendered live in the browser:
 
-![The visual companion previewing the theme toggle feature — showing how the blog looks in both light and dark mode as a user would experience it.]({{ site.baseurl }}/assets/images/post-superpowers-darkmode.png)
-*The visual companion previewing the theme toggle — light and dark side by side, exactly as a user would see it.*
+![The visual companion showing the theme toggle preview rendered live in the browser during brainstorming.]({{ site.baseurl }}/assets/images/post-superpowers-darkmode.png)
+*The visual companion rendering the blog live in the browser so I could see exactly how it would look.*
 
-It felt like having a UX designer on the other end, except one who could spin up a mockup in seconds and immediately iterate on whatever I didn't like. For someone who thinks visually but can't design, that was the part that made it feel real.
+It felt like having a UX designer on the other end, except one who could spin up a mockup in seconds and immediately iterate on whatever I didn't like. For someone who thinks visually but can't design, being able to point at something rendered and say "not that" is a lot faster than trying to describe what you want in words.
 
 After several exchanges it produced a written design spec: hero post, two-column grid, category-based nav dropdown, dark mode toggle, updated About page. Saved to a file, committed to git. You can read it here if you're curious: [frontend-redesign-design.md](https://github.com/amod0017/amod0017.github.io/blob/master/docs/superpowers/specs/2026-05-10-frontend-redesign-design.md).
 
-From that point everything was measured against it.
+Every implementation task was checked against it.
 
 ### Actually Building It
 
@@ -54,17 +54,15 @@ Then subagent-driven development took over: it dispatched a fresh Claude instanc
 
 ### Where Things Broke
 
-Here's the honest part.
-
 **1. Docker crashed immediately.**
 
-My local Ruby environment was too old for the required gems. I switched to Docker, the official `jekyll/jekyll` image. On my Apple Silicon Mac, that image has no ARM64 variant, so it runs under Rosetta via `--platform linux/amd64`. That worked fine until the site tried to compile `main.scss`. The `sass-embedded` gem uses a native binary built for x86, and it dies under emulation:
+My local Ruby environment was too old for the required gems. I switched to Docker, the official `jekyll/jekyll` image. On my Apple Silicon Mac, that image has no ARM64 variant, so it runs under Rosetta via `--platform linux/amd64`. That worked fine until the site tried to compile `main.scss`. The `sass-embedded` gem ships platform-specific native binaries. The `jekyll/jekyll` image runs Alpine Linux, which uses musl libc, and the musl variant of the sass-embedded binary is broken in that environment — a documented incompatibility, not a Rosetta issue:
 
 ```
 Error: EOFError: end of file reached
 ```
 
-The fix was unglamorous: rename `main.scss` to `main.css`. No SCSS features were being used anyway. The problem dissolved.
+The canonical fix is pinning `jekyll-sass-converter` to `2.2.0` in your Gemfile, which avoids sass-embedded entirely. I took a blunter shortcut: rename `main.scss` to `main.css`. Since no SCSS features were actually in use, this sidesteps Sass compilation completely. It only works if you're not using SCSS syntax.
 
 **2. Post excerpts were empty on the home page.**
 
@@ -76,7 +74,7 @@ Switching to `post.content | strip_html | strip | truncatewords: 25` fixed it fo
 
 The dropdown appeared on hover but had a 12px gap between the nav item and the menu (from `top: calc(100% + 12px)`). Moving the mouse down into that dead zone broke the hover chain and the menu vanished. Changing to `top: 100%` made the menu flush, contiguous hover area, problem gone.
 
-To be fair, these are the kinds of issues Superpowers should ideally catch during its spec compliance and code quality reviews. It didn't, and I had to debug them manually. That's worth acknowledging.
+These are environment and runtime issues, not the kind of thing any code review catches. I debugged them the old-fashioned way.
 
 ### The Result
 
@@ -86,7 +84,7 @@ The whole thing took a few hours. The blog now has a hero post, two-column card 
 
 **What felt awkward:** anything touching the local environment was fully outside the AI's reach. Docker issues, native binary crashes, port conflicts, it could suggest fixes but I had to run the commands. That loop still needs a human.
 
-I haven't used Superpowers on a large project yet, so I can't speak to that. But honestly, looking at the workflow, if you're already using Claude Code for something substantial, I'd strongly recommend trying it. The structure it imposes scales in a way that ad-hoc prompting just doesn't.
+I've only used this on a personal blog so I won't pretend to know how it holds up on a large codebase. What I can say is that spec before code and reviews before moving on is the kind of discipline that pays off more as projects get bigger, not less. Worth trying if you're already on Claude Code.
 
 If you've used Superpowers or something similar on a bigger codebase, I'd love to hear how it went.
 
@@ -94,4 +92,4 @@ If you've used Superpowers or something similar on a bigger codebase, I'd love t
 
 ---
 
-*Superpowers is a plugin for [Claude Code](https://claude.ai/code), Anthropic's CLI for working with Claude in your terminal.*
+*Superpowers is a [free open-source plugin](https://github.com/obra/superpowers) for [Claude Code](https://claude.ai/code), Anthropic's CLI for working with Claude in your terminal.*
