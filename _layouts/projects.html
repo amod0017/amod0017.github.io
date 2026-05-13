@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<div class="page">
+  <div class="page-header">
+    <h1>{{ page.title }}</h1>
+  </div>
+  <div class="page-body">
+    <div class="project-grid">
+      {% for project in site.data.projects %}
+      <div class="project-card">
+        <div class="project-card-body">
+          <a class="project-card-title" href="{{ project.github }}" target="_blank" rel="noopener">{{ project.name }}</a>
+          <p class="project-card-desc">{{ project.description }}</p>
+          <div class="project-tech-tags">
+            {% for tag in project.tech %}
+            <span class="project-tech-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="project-card-footer">
+          <span class="project-status project-status--{{ project.status }}">{{ project.status }}</span>
+          <a class="project-github-link" href="{{ project.github }}" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

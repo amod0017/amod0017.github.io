@@ -1,0 +1,9 @@
+- name: contribution-logger
+  description: A local Streamlit dashboard that turns sprint task CSVs into interactive charts for engineering performance reviews. Tracks KPIs like AI adoption rate, proactive initiative %, and services touched.
+  github: https://github.com/amod0017/contribution-logger
+  tech:
+    - Python
+    - Streamlit
+    - Pandas
+    - Plotly
+  status: active
