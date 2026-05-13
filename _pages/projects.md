@@ -1,7 +1,5 @@
 ---
-layout: page
+layout: projects
 title: Projects
 permalink: /projects/
 ---
-
-Coming soon: My side projects and experiments!
