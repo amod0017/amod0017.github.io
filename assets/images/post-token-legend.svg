@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&amp;display=swap');
+      text { font-family: 'Caveat', 'Comic Sans MS', cursive; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FAFAF8"/>
+
+  <!-- Subtle paper texture lines -->
+  <line x1="0" y1="210" x2="1200" y2="210" stroke="#e8e8e4" stroke-width="1"/>
+  <line x1="0" y1="420" x2="1200" y2="420" stroke="#e8e8e4" stroke-width="1"/>
+
+  <!-- ═══ LEFT BOX: STORY POINTS ═══ -->
+  <!-- Rough rectangle (hand-drawn feel) -->
+  <path d="M 72,82 C 130,78 230,80 348,83 C 351,140 352,220 349,318 C 280,322 170,320 71,317 C 68,250 69,160 72,82 Z"
+        fill="#ffffff" stroke="#1e1e2e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Title underline -->
+  <line x1="80" y1="118" x2="342" y2="118" stroke="#1e1e2e" stroke-width="1.5" stroke-linecap="round"
+        stroke-dasharray="0" opacity="0.4"/>
+
+  <text x="210" y="112" font-size="22" font-weight="700" fill="#1e1e2e" text-anchor="middle">Sprint Planning 🃏</text>
+
+  <!-- Poker card sketch -->
+  <path d="M 138,145 C 145,143 195,144 222,146 C 224,185 224,235 222,268 C 200,270 155,270 137,268 C 135,235 135,180 138,145 Z"
+        fill="#f0f0ed" stroke="#1e1e2e" stroke-width="2" stroke-linecap="round"/>
+  <text x="180" y="218" font-size="58" font-weight="700" fill="#1e1e2e" text-anchor="middle">5</text>
+  <text x="180" y="258" font-size="13" fill="#888" text-anchor="middle">story pts</text>
+
+  <!-- Scribbled annotation -->
+  <text x="248" y="175" font-size="17" fill="#e05c2a" transform="rotate(-4, 248, 175)">wait... is it</text>
+  <text x="245" y="198" font-size="17" fill="#e05c2a" transform="rotate(-4, 245, 198)">a 3 or an 8?</text>
+
+  <!-- Arrow pointing from 5 -->
+  <path d="M 228,207 C 248,205 262,202 275,200" stroke="#e05c2a" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-dasharray="4,3"/>
+  <path d="M 272,196 L 278,200 L 271,204" fill="none" stroke="#e05c2a" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Velocity note -->
+  <text x="100" y="300" font-size="16" fill="#888">velocity this sprint: 47 📈</text>
+  <text x="105" y="310" font-size="13" fill="#aaa">(did we ship what mattered? 🤷)</text>
+
+
+  <!-- ═══ RIGHT BOX: CLAUDEONOMICS ═══ -->
+  <path d="M 558,62 C 650,58 820,61 1138,64 C 1141,160 1142,330 1138,448 C 900,452 700,450 558,448 C 555,340 556,170 558,62 Z"
+        fill="#ffffff" stroke="#1e1e2e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="848" y="106" font-size="26" font-weight="700" fill="#1e1e2e" text-anchor="middle">🏆 CLAUDEONOMICS</text>
+  <line x1="568" y1="118" x2="1128" y2="118" stroke="#1e1e2e" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+  <text x="848" y="142" font-size="15" fill="#888" text-anchor="middle">internal leaderboard · 85,000 employees</text>
+
+  <!-- Column headers -->
+  <text x="590" y="175" font-size="16" fill="#aaa">  RANK    NAME                   TOKENS        SHIPPED</text>
+  <line x1="578" y1="182" x2="1128" y2="182" stroke="#ccc" stroke-width="1" stroke-linecap="round"/>
+
+  <!-- Row 1 - highlighted -->
+  <path d="M 576,186 C 700,184 950,185 1126,187 C 1127,205 1127,215 1126,220 C 950,222 700,221 576,220 C 575,212 575,196 576,186 Z"
+        fill="#fff9e6" stroke="none"/>
+  <text x="590" y="208" font-size="18" fill="#c8860a">  🥇  TOKEN_LEGEND_01         60,000,000,000T    ???</text>
+
+  <text x="590" y="238" font-size="17" fill="#555">  🥈  SESSION_IMMORTAL_42     44,200,000,000T    ???</text>
+  <text x="590" y="264" font-size="17" fill="#555">  🥉  VELOCITY_HERO_99        31,500,000,000T    ???</text>
+
+  <line x1="578" y1="278" x2="1128" y2="278" stroke="#ccc" stroke-width="1" stroke-linecap="round" stroke-dasharray="5,4"/>
+
+  <!-- The quiet row -->
+  <text x="590" y="305" font-size="17" fill="#aaa">   4    just_doing_real_work        142,000T    ✓ 12 PRs</text>
+
+  <!-- Annotation arrow pointing to row 4 -->
+  <path d="M 1050,330 C 1060,318 1065,312 1060,306" stroke="#2a7a2a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 1057,303 L 1062,308 L 1056,310" fill="none" stroke="#2a7a2a" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="1055" y="348" font-size="16" fill="#2a7a2a" text-anchor="middle" transform="rotate(3, 1055, 348)">this one</text>
+  <text x="1050" y="366" font-size="16" fill="#2a7a2a" text-anchor="middle" transform="rotate(3, 1050, 366)">actually shipped</text>
+
+  <!-- Abolished note -->
+  <path d="M 590,400 C 700,397 900,398 1120,400 C 1122,428 1121,440 1120,442 C 900,444 700,443 590,442 C 588,432 588,412 590,400 Z"
+        fill="#fff0f0" stroke="#e05c2a" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5,3"/>
+  <text x="855" y="426" font-size="16" fill="#e05c2a" text-anchor="middle">⚠️  leaderboard abolished after press coverage. reason listed: "misuse"</text>
+
+
+  <!-- ═══ CENTER CONNECTOR ═══ -->
+  <!-- Curly brace / equals sign area -->
+  <path d="M 358,198 C 390,185 430,182 468,185 C 500,188 530,192 558,197"
+        stroke="#1e1e2e" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="6,4"/>
+  <text x="460" y="175" font-size="19" font-weight="700" fill="#1e1e2e" text-anchor="middle" transform="rotate(-8, 460, 175)">same</text>
+  <text x="458" y="197" font-size="19" font-weight="700" fill="#1e1e2e" text-anchor="middle" transform="rotate(-8, 458, 197)">energy</text>
+
+
+  <!-- ═══ BOTTOM LABEL ═══ -->
+  <text x="600" y="555" font-size="21" font-weight="700" fill="#1e1e2e" text-anchor="middle">
+    Goodhart's Law: when a measure becomes a target, it ceases to be a good measure.
+  </text>
+  <text x="600" y="585" font-size="16" fill="#aaa" text-anchor="middle">— story points (2001)  ·  token counts (2025)  ·  whatever's next</text>
+
+</svg>
