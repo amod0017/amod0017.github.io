@@ -28,18 +28,18 @@
   <div class="nav-right">
     <ul class="nav-links" id="nav-links">
       <li class="has-dropdown">
-        <a href="{{ site.baseurl }}/blog" class="dropdown-toggle" id="blog-toggle">Blog</a>
+        <a href="{{ site.baseurl }}/blog/" class="dropdown-toggle" id="blog-toggle">Blog</a>
         <ul class="nav-dropdown" id="blog-dropdown">
           {% assign sorted_cats = site.categories | sort %}
           {% for cat in sorted_cats %}
           <li><a href="{{ '/category/' | append: cat[0] | downcase | replace: ' ', '-' | append: '/' | relative_url }}">{{ cat[0] }}</a></li>
           {% endfor %}
           <li class="nav-dropdown-divider"></li>
-          <li><a href="{{ site.baseurl }}/blog">All Posts</a></li>
+          <li><a href="{{ site.baseurl }}/blog/">All Posts</a></li>
         </ul>
       </li>
-      <li><a href="{{ site.baseurl }}/projects">Projects</a></li>
-      <li><a href="{{ site.baseurl }}/about">About</a></li>
+      <li><a href="{{ site.baseurl }}/projects/">Projects</a></li>
+      <li><a href="{{ site.baseurl }}/about/">About</a></li>
     </ul>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode"></button>
   </div>
