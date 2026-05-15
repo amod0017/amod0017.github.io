@@ -1,3 +1,12 @@
+- name: ai-toolkit
+  description: A collection of Claude Code skills and agents for AI-assisted development. Includes a pedantic-reader skill that reviews written content for accuracy and credibility by verifying claims against live web sources.
+  github: https://github.com/amod0017/ai-toolkit
+  tech:
+    - Claude Code
+    - Markdown
+    - Prompt Engineering
+  status: active
+
 - name: contribution-logger
   description: A local Streamlit dashboard that turns sprint task CSVs into interactive charts for engineering performance reviews. Tracks KPIs like AI adoption rate, proactive initiative %, and services touched.
   github: https://github.com/amod0017/contribution-logger
